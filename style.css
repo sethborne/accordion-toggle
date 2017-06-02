@@ -123,9 +123,9 @@ transition: all .1s linear 0s;*/
     border: none;
 }
 
-/*.toggle-item {
+.toggle-item {
     margin-bottom: 0px;
-}*/
+}
 
 /*.toggle-item+.toggle-item {
     margin-top: 5px;

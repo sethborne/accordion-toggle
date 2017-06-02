@@ -65,9 +65,7 @@
             <div class="panel-group toggle-item" id="toggle1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#toggle1" href="#collapseTOne">Tog 1</a>
-                        </h4>
+                        <a class="panel-toggle toggle collapsed" data-toggle="collapse" data-parent="#toggle1" href="#collapseTOne">Tog 1</a>
                     </div>
                     <div id="collapseTOne" class="panel-collapse collapse">
                         <div class="panel-body">
@@ -79,9 +77,7 @@
             <div class="panel-group toggle-item" id="toggle2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#toggle2" href="#collapseTTwo">Tog 2</a>
-                        </h4>
+                        <a class="panel-toggle toggle collapsed" data-toggle="collapse" data-parent="#toggle2" href="#collapseTTwo">Tog 2</a>
                     </div>
                     <div id="collapseTTwo" class="panel-collapse collapse">
                         <div class="panel-body">
@@ -93,9 +89,7 @@
             <div class="panel-group toggle-item" id="toggle3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#toggle3" href="#collapseTThree">Tog 3</a>
-                        </h4>
+                        <a class="panel-toggle toggle collapsed" data-toggle="collapse" data-parent="#toggle3" href="#collapseTThree">Tog 3</a>
                     </div>
                     <div id="collapseTThree" class="panel-collapse collapse">
                         <div class="panel-body">
@@ -108,18 +102,89 @@
     </div>
     <script>
         $(document).ready(function(){
-            // this will toggle the active state on one panel - but doesn't care about others
-            $('.panel-heading a').click(function() {
-                if ( !$(this).parent('.panel-heading').hasClass('active') ){
-                    $(this).parent('.panel-heading').addClass('active');
-                    console.log('Parent Had Not Active, Now Active');
-                }
-                else {
-                    !$(this).parents('.panel-heading').removeClass('active')
-                    console.log('Parent Was Active, Not Active');
-                }
-            });
+            // 1- this will toggle the active state on one panel - but doesn't care about others
             
+            // $('.panel-heading a').click(function() {
+            //     if ( !$(this).parent('.panel-heading').hasClass('active') ){
+            //         $(this).parent('.panel-heading').addClass('active');
+            //         console.log('Parent Had Not Active, Now Active');
+            //     }
+            //     else {
+            //         !$(this).parents('.panel-heading').removeClass('active')
+            //         console.log('Parent Was Active, Not Active');
+            //     }
+            // });
+
+            // 2- this will toggle the active state on each panel if another panel is clicked.  But wont remove active if the same panel is clicked twice.
+            // $('.panel-heading a').click(function() {
+            //     $('.panel-heading').removeClass('active');
+            //     $(this).parents('.panel-heading').addClass('active');
+            // });
+
+            //attempt to combine
+
+            // thoughts about the logic
+
+            // knowns:
+            // all panel-headings are inactive (or better said, do not have the active class) when the page loads.
+
+            // logic:
+
+            // on the action of click on the .panel-heading child a
+
+            // make the .panel-heading of that child active
+            // THIS WORKS
+
+            // $('.panel-heading a').click(function() {
+            //     $(this).parents('.panel-heading').addClass('active');
+            // });
+
+            // then do this check:
+            // if any other .panel-heading is active, make them inactive (remove the active class)
+            // THIS WORKS
+
+            // $('.panel-heading a').click(function() {
+            //     //if other .panel-heading is active, remove
+            //     if ( $('.panel-heading').hasClass('active') ){
+            //         $('.panel-heading').removeClass('active');
+            //     }
+            //     $(this).parents('.panel-heading').addClass('active');
+            // });
+
+
+            // last check (or perhaps this needs to be an earlier if condition)
+
+            // if, on the action of click on the .panel-heading child a, this particular panel heading is already active, then remove the active class (toggle!?!)
+            $('.panel-heading a').click(function() {
+                //if other .panel-heading is active, remove
+                if ( $('.panel-heading').hasClass('active') ){
+                    $('.panel-heading').removeClass('active');
+                }
+                    //ATTEMPT - if the parent of a is already active - then remove the active class
+                    // if ( $(this).parents('.panel-heading').hasClass('active') ){
+                    //     $(this).parents('.panel-heading').removeClass('active');
+                    // }
+                    // else {
+                    //     $(this).parents('.panel-heading').addClass('active');
+                    // }
+
+                    //ATTEMPT - if the parent of a is NOT already active - then add the active class.  if it is active (or by this if it is NOT NOT active) remove active
+                    if ( !$(this).parents('.panel-heading').hasClass('active') ){
+                        $(this).parents('.panel-heading').addClass('active');
+                    }
+                    else {
+                        $(this).parents('.panel-heading').removeClass('active');
+                    }
+            });
+
+            // alternate logic consideration:  another way to think about this would be that when the .panel heading a is clicked - and its active, the content is open.  when the content is collapsed, the .panel heading  should be inactive....
+            //  But that is a different approach all together.
+
+
+
+
+
+            // internet experiments of copying and pasting code - nothing quite right
 
             // $('.panel-heading a').click(function() {
             //     if ( !$(this, '.panel-heading').hasClass('active') ){
