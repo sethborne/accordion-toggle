@@ -17,7 +17,7 @@
             <div class="panel-group" id="accordionArea">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a class="panel-toggle collapsed" data-toggle="collapse" data-parent="#accordionArea" href="#collapseOne">
+                        <a class="panel-toggle accordion collapsed" data-toggle="collapse" data-parent="#accordionArea" href="#collapseOne">
                             Acc 1
 
                             <span></span>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a class="panel-toggle collapsed" data-toggle="collapse" data-parent="#accordionArea" href="#collapseTwo">
+                        <a class="panel-toggle accordion collapsed" data-toggle="collapse" data-parent="#accordionArea" href="#collapseTwo">
                             Acc 2
                         </a>
                     </div>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a class="panel-toggle collapsed" data-toggle="collapse" data-parent="#accordionArea" href="#collapseThree">
+                        <a class="panel-toggle accordion collapsed" data-toggle="collapse" data-parent="#accordionArea" href="#collapseThree">
                             Acc 3
                         </a>
                     </div>
@@ -58,7 +58,7 @@
         <div class="col-md-12">
             <div class="panel-group toggle-item" id="toggle1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading inactive">
                         <a class="panel-toggle toggle collapsed" data-toggle="collapse" data-parent="#toggle1" href="#collapseTOne">Tog 1</a>
                     </div>
                     <div id="collapseTOne" class="panel-collapse collapse">
@@ -70,7 +70,7 @@
             </div>
             <div class="panel-group toggle-item" id="toggle2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading inactive">
                         <a class="panel-toggle toggle collapsed" data-toggle="collapse" data-parent="#toggle2" href="#collapseTTwo">Tog 2</a>
                     </div>
                     <div id="collapseTTwo" class="panel-collapse collapse">
@@ -82,7 +82,7 @@
             </div>
             <div class="panel-group toggle-item" id="toggle3">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading inactive">
                         <a class="panel-toggle toggle collapsed" data-toggle="collapse" data-parent="#toggle3" href="#collapseTThree">Tog 3</a>
                     </div>
                     <div id="collapseTThree" class="panel-collapse collapse">
@@ -96,7 +96,8 @@
     </div>
     <script>
         $(document).ready(function(){
-            $('.panel-heading a').click(function() {
+            $('.panel-heading .panel-toggle.accordion').click(function() {
+                console.log('jQuery1');
                 const clicked = $(this).parent('.panel-heading');
                 const allActive = $(".active");
                 if (!($(clicked).hasClass("active"))) {
@@ -105,6 +106,17 @@
                 allActive.map((element) => {
                     $(allActive[element]).removeClass("active")
                 });
+            });
+            $('.panel-heading .panel-toggle.toggle').click(function() {
+                console.log('jQuery2');
+                if($(this).parent('.panel-heading').hasClass('active')){
+                    $(this).parent('.panel-heading').removeClass('active');
+                    $(this).parent('.panel-heading').addClass('inactive');
+                }
+                else{
+                    $(this).parent('.panel-heading').removeClass('inactive');
+                    $(this).parent('.panel-heading').addClass('active');
+                }
             });
         });
     </script>
