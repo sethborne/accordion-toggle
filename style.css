@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    /*background: red;*/
+}
+
+.container {
+    /*padding: 50px 25px 0px 25px;*/
+    padding: 10% 5% 0% 5%;
+}
+
+
+/*-----------------------------------*/
+/*           panel styling           */
+/*-----------------------------------*/
+
+.panel-group {
+    margin-bottom: 50px;
+}
+
+.panel-group .panel {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.panel-group .panel+.panel {
+    margin-top: 0px;
+}
+
+/*use this if you want space between*/
+
+.panel-default {
+    border: none;
+}
+
+.panel-default > .panel-heading {
+    border: none;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(65, 65, 65, 1);
+}
+
+.panel-heading {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+
+.panel-heading.active {
+    background-color:  rgba(255, 150, 0, 1);
+}
+
+
+.panel-heading:hover {
+    background-color:  rgba(255, 150, 0, 1);
+}
+
+.panel-heading .panel-toggle {
+    position: relative;
+    display: block;
+    padding: 15px 15px 15px 15px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/*-webkit-transition: all .1s linear 0s;
+-moz-transition: all .1s linear 0s;
+transition: all .1s linear 0s;*/
+
+/*.panel-heading .panel-toggle span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin: -10px 0px 0px 0px;
+    font-size: 18px;
+}*/
+
+
+
+.panel-heading .panel-toggle:after {
+    font-family: FontAwesome;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin: -10px 0px 0px 0px;
+    font-size: 12px;
+    content: "\f078";
+}
+
+.panel-heading .panel-toggle.collapsed:after {
+    /*font-family: FontAwesome;*/
+    content: "\f077";
+}
+
+.panel-heading .panel-toggle.toggle:after {
+    font-family: FontAwesome;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin: -10px 0px 0px 0px;
+    font-size: 12px;
+    content: "\f068";
+}
+
+.panel-heading .panel-toggle.toggle.collapsed:after {
+    /*font-family: FontAwesome;*/
+    content: "\f067";
+}
+
+
+/*had animation info here*/
+
+.panel-body {
+    background: rgba(145, 145, 145, 1);
+    padding: 15px 20px;
+    color: rgba(255, 255, 255, 1);
+    border: none;
+}
+
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border: none;
+}
+
+/*.toggle-item {
+    margin-bottom: 0px;
+}*/
+
+/*.toggle-item+.toggle-item {
+    margin-top: 5px;
+}*/

@@ -1,0 +1,19 @@
+$('.panel-heading .panel-toggle.toggle').click(function() {
+                // $('.panel-heading').toggleClass('active');
+                // $(this).parents('.panel-heading').addClass('active');
+                // if ( $(this).parents('.panel-heading').hasClass('active') ){
+                //     $('.panel-heading').removeClass('active');
+                // }
+                // else {
+                //     $(this).addClass('active');
+                // }
+                if( $(this).parent().hasClass("active") ) {
+                    console.log("has a parent with the class active")
+                    $(this).parent().removeClass("active")
+                }
+                else
+                {
+                    console.log("no parent class active found")
+                    $(this).parent('.panel-heading').addClass("active")
+                }
+            });
