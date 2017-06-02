@@ -16,7 +16,7 @@
         <div class="col-md-12">
             <div class="panel-group" id="accordionArea">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading accordion">
                         <a class="panel-toggle accordion collapsed" data-toggle="collapse" data-parent="#accordionArea" href="#collapseOne">
                             Acc 1
 
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading accordion">
                         <a class="panel-toggle accordion collapsed" data-toggle="collapse" data-parent="#accordionArea" href="#collapseTwo">
                             Acc 2
                         </a>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading accordion">
                         <a class="panel-toggle accordion collapsed" data-toggle="collapse" data-parent="#accordionArea" href="#collapseThree">
                             Acc 3
                         </a>
@@ -98,13 +98,13 @@
         $(document).ready(function(){
             $('.panel-heading .panel-toggle.accordion').click(function() {
                 console.log('jQuery1');
-                const clicked = $(this).parent('.panel-heading');
-                const allActive = $(".active");
-                if (!($(clicked).hasClass("active"))) {
-                    $(clicked).addClass("active");
+                const clicked = $(this).parent('.panel-heading.accordion');
+                const allActive = $('.panel-heading.accordion.active');
+                if (!($(clicked).hasClass('active'))) {
+                    $(clicked).addClass('active');
                 }
                 allActive.map((element) => {
-                    $(allActive[element]).removeClass("active")
+                    $(allActive[element]).removeClass('active')
                 });
             });
             $('.panel-heading .panel-toggle.toggle').click(function() {
